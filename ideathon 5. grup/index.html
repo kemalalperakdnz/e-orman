@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Orman - Ana Sayfa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Project Information Section Styles */
+        .project-info-container {
+            margin-top: 60px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-left: 4px solid #2e7d32;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-info-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(96, 173, 94, 0.1);
+            border-radius: 0 0 0 100%;
+            z-index: 0;
+        }
+        
+        .project-section {
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .project-section h3 {
+            color: #005005;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-section h3 i {
+            margin-right: 10px;
+            color: #2e7d32;
+        }
+        
+        .project-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: #424242;
+            padding-left: 5px;
+        }
+        
+        .project-section ul {
+            list-style-type: none;
+            padding-left: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .project-section ul li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 25px;
+            color: #424242;
+        }
+        
+        .project-section ul li:before {
+            content: '•';
+            color: #2e7d32;
+            font-size: 1.2em;
+            position: absolute;
+            left: 5px;
+            top: -2px;
+        }
+        
+        .project-section ul li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .project-title {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #60ad5e;
+            position: relative;
+        }
+        
+        .project-title h3 {
+            font-size: 1.5rem;
+            color: #005005;
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .project-info-container {
+                padding: 25px;
+            }
+            
+            .project-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .project-title h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>e-Orman</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Ana Sayfa</a></li>
+                    <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                    <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                    <li><a href="topluluk.html">Topluluk</a></li>
+                    <li><a href="liderlik-tablosu.html">Liderlik Tablosu</a></li>
+                    <li><a href="giris.html" id="login-btn">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Dünyayı Birlikte Yeşillendirelim</h2>
+            <p>Ağaç dikerek, takip ederek ve öğrenerek çevremizi koruyalım.</p>
+            <a href="agac-takip.html" class="btn">Ağaç Takip Bölümüne Git</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-box">
+                <i class="fas fa-tree"></i>
+                <h3>Ağaç Takip</h3>
+                <p>Diktiğiniz ağaçları takip edin, büyümelerini izleyin ve doğaya katkınızı görün.</p>
+                <a href="agac-takip.html" class="btn-small">Daha Fazla</a>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-book-open"></i>
+                <h3>Eğitim ve Bilgilendirme</h3>
+                <p>Ağaç dikimi, çevre koruma ve iklim değişikliği hakkında bilgi edinin.</p>
+                <a href="egitim.html" class="btn-small">Daha Fazla</a>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-users"></i>
+                <h3>Topluluk</h3>
+                <p>Çevre dostu bir topluluğun parçası olun ve deneyimlerinizi paylaşın.</p>
+                <a href="topluluk.html" class="btn-small">Daha Fazla</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <p>e-Orman, çevre bilincini artırmak ve ağaçlandırma çalışmalarını desteklemek amacıyla kurulmuş bir platformdur. Amacımız, herkesin kolayca ağaç dikebilmesini ve bu süreci takip edebilmesini sağlamaktır.</p>
+            
+            <div class="team-container">
+                <div class="person-card">
+                    <div class="person-info">
+                        <h3>Feride İkbal Durmuş</h3>
+                        <p class="person-title">Kurucu & Yönetici</p>
+                        <p class="person-description">Çevre mühendisi olarak 10 yıllık deneyime sahip. e-Orman'ı sürdürülebilir bir gelecek için kurdu.</p>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-info">
+                        <h3>Kemal Alper Akdeniz</h3>
+                        <p class="person-title">Eğitim Direktörü</p>
+                        <p class="person-description">Biyoloji eğitmeni olarak çevre eğitimi konusunda uzmanlaşmış. Platformumuzun eğitim içeriklerinden sorumlu.</p>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-info">
+                        <h3>Buse Nur Akpınar</h3>
+                        <p class="person-title">Topluluk Yöneticisi</p>
+                        <p class="person-description">Sosyal medya ve topluluk yönetimi konusunda deneyimli. e-Orman topluluğunu bir araya getiriyor.</p>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-info">
+                        <h3>Deniz Doğruel</h3>
+                        <p class="person-title">Proje Koordinatörü</p>
+                        <p class="person-description">Çevre projeleri yönetiminde uzman. Ağaçlandırma projelerimizin planlanması ve uygulanmasını koordine ediyor.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-info-container">
+                <div class="project-title">
+                    <h3><i class="fas fa-leaf"></i> Konu: İklim Krizi</h3>
+                </div>
+                
+                <div class="project-section">
+                    <h3><i class="fas fa-exclamation-circle"></i> Problem/Fırsat</h3>
+                    <p>İklim krizinin en büyük nedenlerinden biri olan ormansızlaşma ve ormanların tahribatı konusunda toplumda yeterli farkındalık bulunmamaktadır. Ayrıca, bireylerin doğrudan katkı sağlayabileceği sürdürülebilir ve şeffaf dijital çözümler eksiktir.</p>
+                    <p>Bu durum, hem çevre bilincinin gelişmesini engellemekte hem de ağaçlandırma projelerine olan katılımı sınırlamaktadır. Fırsat olarak ise dijital teknolojiler kullanılarak, ağaç dikim süreçlerinin daha görünür ve takip edilebilir hale getirilmesi, bireylerin sürece dahil olmasını teşvik edebilir. Bu sayede, iklim krizine karşı daha aktif bir toplumsal bilinç ve katılım sağlanabilir.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h3><i class="fas fa-project-diagram"></i> Proje Özeti</h3>
+                    <p>Bu proje, kullanıcıların gerçek ağaç dikim süreçlerini dijital ortamda takip edebilecekleri, katkıda bulunabilecekleri ve çevre bilinci kazanabilecekleri bir web platformu oluşturmayı amaçlar. Dijital Orman, bireylerin katkıda bulundukları ağaçları takip edebileceği, çevre hakkında bilgi edinebileceği, etkileşimli bir web ortamı sunmaktadır.</p>
+                </div>
+                
+                <div class="project-section">
+                    <h3><i class="fas fa-lightbulb"></i> Çözüm Önerisi</h3>
+                    <ul>
+                        <li>Kullanıcılar hem bireysel hem de topluluk olarak katkıda bulunma motivasyonu kazanır.</li>
+                        <li>Kullanıcılara çevre bilinci, iklim krizi, ağaç dikimi ve doğaya katkı konularında kısa ve etkili eğitim içerikleri sunulur.</li>
+                        <li>Ağaç dikimine katkı sağlayan kurum ve kuruluşların çalışmaları takip edilebilir.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h3><i class="fas fa-code"></i> Geliştirme Yöntemleri</h3>
+                    <ul>
+                        <li>Sade, kullanıcı dostu ve yeşil temalı bir arayüz tasarlanır.</li>
+                        <li>Sayfa yapısı planlanır: Ana Sayfa, Ağaç Takip Sayfası, Bilgilendirme/Eğitim Sayfası vb.</li>
+                        <li>Responsive (mobil uyumlu) tasarıma dikkat edilir.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Riskler</h3>
+                    <ul>
+                        <li>Gerçek ağaç dikimiyle bağlantılı iş birliklerinin yetersiz olması.</li>
+                        <li>Kullanıcıların platforma ilgi göstermemesi.</li>
+                        <li>Eğitim içeriklerinin yeterince ilgi çekici olmaması.</li>
+                        <li>Veri güvenliği ve kullanıcı gizliliği.</li>
+                        <li>Ormanların tahribatı konusunda toplumun yeterince bilgi sahibi olmaması.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-section">
+                    <h3><i class="fas fa-tools"></i> Kaynaklar</h3>
+                    <ul>
+                        <li>Çevre STK'ları ve belediyelerle iş birlikleri.</li>
+                        <li>Web geliştirme araçları (VS Code, GitHub).</li>
+                        <li>Yapay Zeka Araçları: Windsurf, ChatGPT.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>e-Orman</h3>
+                    <p>Dünyayı birlikte yeşillendirelim.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bağlantılar</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                        <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                        <li><a href="topluluk.html">Topluluk</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim</h3>
+                    <a href="https://github.com/kemalalperakdnz/e-orman" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 e-Orman. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

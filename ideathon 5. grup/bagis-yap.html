@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bağış Yapın - e-Orman</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>e-Orman</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                    <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                    <li><a href="topluluk.html">Topluluk</a></li>
+                    <li><a href="liderlik-tablosu.html">Liderlik Tablosu</a></li>
+                    <li><a href="giris.html" id="login-btn">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bağışınızla Fark Yaratın</h1>
+            <p>Yeşil bir dünya için vereceğiniz her destek, gelecek nesillere bırakacağımız mirası şekillendirir.</p>
+        </div>
+    </section>
+
+    <!-- Donation Intro Section -->
+    <section class="donation-intro">
+        <div class="container">
+            <h2 class="section-title">Bağışınızın Etkisi</h2>
+            <p class="section-description">Yeşil Dünya olarak, her bağışı doğrudan çevresel projelerimize aktarıyoruz. Sizin desteğinizle neler yapabildiğimize bir göz atın:</p>
+            
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <i class="fas fa-tree"></i>
+                    <h4>250.000+</h4>
+                    <p>Dikilen Ağaç</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-leaf"></i>
+                    <h4>5.500+</h4>
+                    <p>Korunan Hektar</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>15.000+</h4>
+                    <p>Eğitilen Öğrenci</p>
+                </div>
+                <div class="impact-item">
+                    <i class="fas fa-users"></i>
+                    <h4>30.000+</h4>
+                    <p>Gönüllü Katılımcı</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Options Section -->
+    <section class="donation-options">
+        <div class="container">
+            <h2 class="section-title">Bağış Seçenekleri</h2>
+            <p class="section-description">Size en uygun bağış seçeneğini seçerek doğaya katkıda bulunabilirsiniz.</p>
+            
+            <div class="donation-tabs">
+                <button class="tab-btn active" data-tab="one-time">Tek Seferlik</button>
+                <button class="tab-btn" data-tab="monthly">Aylık</button>
+                <button class="tab-btn" data-tab="tree-planting">Ağaç Dikimi</button>
+            </div>
+            
+            <!-- One-time Donation Tab -->
+            <div id="one-time" class="tab-pane active">
+                <div class="amount-buttons">
+                    <button class="amount-btn active">50 TL</button>
+                    <button class="amount-btn">100 TL</button>
+                    <button class="amount-btn">250 TL</button>
+                    <button class="amount-btn">500 TL</button>
+                    <button class="amount-btn custom-btn">Diğer</button>
+                    <div class="custom-amount">
+                        <input type="number" id="custom-amount" placeholder="Miktar">
+                        <span>TL</span>
+                    </div>
+                </div>
+                <button class="btn donate-btn">Bağış Yap</button>
+            </div>
+            
+            <!-- Monthly Donation Tab -->
+            <div id="monthly" class="tab-pane">
+                <div class="amount-buttons">
+                    <button class="amount-btn">25 TL</button>
+                    <button class="amount-btn">50 TL</button>
+                    <button class="amount-btn">100 TL</button>
+                    <button class="amount-btn">200 TL</button>
+                    <button class="amount-btn custom-btn">Diğer</button>
+                    <div class="custom-amount">
+                        <input type="number" placeholder="Miktar">
+                        <span>TL</span>
+                    </div>
+                </div>
+                <p class="monthly-note">Aylık bağışınız, sürdürülebilir projelerimizin devamlılığını sağlar.</p>
+                <button class="btn donate-btn">Aylık Bağış Başlat</button>
+            </div>
+            
+            <!-- Tree Planting Tab -->
+            <div id="tree-planting" class="tab-pane">
+                <p>Kaç ağaç dikmek istersiniz?</p>
+                <div class="tree-counter">
+                    <button id="decrease-trees" class="counter-btn">-</button>
+                    <input type="number" id="tree-count" value="1" min="1">
+                    <button id="increase-trees" class="counter-btn">+</button>
+                </div>
+                <div class="tree-info">
+                    <p>Toplam: <span id="tree-cost">50 TL</span></p>
+                    <p>Yıllık CO2 Emilimi: <span id="tree-impact">22 kg CO2</span></p>
+                </div>
+                <button class="btn donate-btn">Ağaç Dik</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section class="donation-form">
+        <div class="container">
+            <h2 class="section-title">Bağış Bilgileriniz</h2>
+            <p class="section-description">Bağışınızı tamamlamak için lütfen aşağıdaki formu doldurun.</p>
+            
+            <div class="form-container">
+                <form id="donation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">Ad</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Soyad</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Adres</label>
+                        <input type="text" id="address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="donation-note">Bağış Notu (İsteğe Bağlı)</label>
+                        <textarea id="donation-note" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <label>Ödeme Yöntemi</label>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                                <label for="credit-card">Kredi Kartı</label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer">
+                                <label for="bank-transfer">Banka Havalesi</label>
+                            </div>
+                        </div>
+                        
+                        <div class="bank-info" style="display: none;">
+                            <p><strong>Banka Hesap Bilgileri:</strong></p>
+                            <p>Banka: Yeşil Banka</p>
+                            <p>Şube: Merkez Şube (123)</p>
+                            <p>Hesap Adı: Yeşil Dünya Derneği</p>
+                            <p>IBAN: TR12 3456 7890 1234 5678 9012 34</p>
+                            <p><em>Lütfen havale açıklamasına adınızı ve "bağış" yazınız.</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="newsletter" checked>
+                        <label for="newsletter">Yeşil Dünya'nın bültenlerine abone olmak istiyorum.</label>
+                    </div>
+                    
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">Kişisel verilerimin işlenmesine izin veriyorum ve gizlilik politikasını kabul ediyorum.</label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Bağışı Tamamla</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>e-Orman</h3>
+                    <p>Dünyayı birlikte yeşillendirelim.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bağlantılar</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                        <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                        <li><a href="topluluk.html">Topluluk</a></li>
+                        <li><a href="liderlik-tablosu.html">Liderlik Tablosu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim</h3>
+                    <a href="https://github.com/kemalalperakdnz/e-orman" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 e-Orman. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/donation.js"></script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - e-Orman</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .forum-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .forum-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .forum-search {
+            display: flex;
+            max-width: 300px;
+        }
+        
+        .forum-search input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        
+        .forum-search button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+        }
+        
+        .forum-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .forum-categories {
+            margin-bottom: 40px;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            background-color: var(--background-light);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .category-card h4 {
+            margin: 0;
+            color: var(--primary-dark);
+        }
+        
+        .category-card p {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .topics-section {
+            margin-top: 40px;
+        }
+        
+        .topics-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .topics-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .topics-table th, .topics-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .topics-table th {
+            background-color: var(--background-dark);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .topics-table tr:hover {
+            background-color: var(--background-light);
+        }
+        
+        .topic-title {
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+        
+        .topic-title i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .topic-meta {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .topic-stats {
+            text-align: center;
+            width: 100px;
+        }
+        
+        .topic-last-post {
+            width: 200px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 5px;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .forum-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .forum-search {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .topic-stats, .topic-last-post {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>e-Orman</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                    <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                    <li><a href="topluluk.html">Topluluk</a></li>
+                    <li><a href="liderlik-tablosu.html">Liderlik Tablosu</a></li>
+                    <li><a href="giris.html" id="login-btn">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Forum</h2>
+            <p>Topluluk üyeleriyle bilgi paylaşın, sorular sorun ve deneyimlerinizi aktarın.</p>
+        </div>
+    </section>
+
+    <section class="forum-section">
+        <div class="container">
+            <div class="forum-container">
+                <div class="forum-header">
+                    <h3>e-Orman Forumu</h3>
+                    <div class="forum-search">
+                        <input type="text" placeholder="Forumda ara...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="forum-actions">
+                    <a href="#" class="btn-small">Yeni Konu Aç</a>
+                    <a href="#" class="btn-small btn-outline">Tüm Konular</a>
+                    <a href="#" class="btn-small btn-outline">Son Yazılar</a>
+                </div>
+
+                <div class="forum-categories">
+                    <h3>Kategoriler</h3>
+                    <div class="category-grid">
+                        <div class="category-card">
+                            <div class="category-header">
+                                <div class="category-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h4>Ağaç Dikimi ve Bakımı</h4>
+                            </div>
+                            <p>Ağaç dikimi, bakımı ve türleri hakkında bilgi paylaşımı yapabilirsiniz.</p>
+                            <div class="category-stats">
+                                <span>125 konu</span>
+                                <span>843 yanıt</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-header">
+                                <div class="category-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <h4>Sürdürülebilir Yaşam</h4>
+                            </div>
+                            <p>Sürdürülebilir yaşam pratikleri, geri dönüşüm ve sıfır atık hakkında paylaşımlar.</p>
+                            <div class="category-stats">
+                                <span>98 konu</span>
+                                <span>562 yanıt</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-header">
+                                <div class="category-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h4>Permakültür ve Ekolojik Yaşam</h4>
+                            </div>
+                            <p>Permakültür ilkeleri, ekolojik yaşam ve doğal tarım hakkında bilgi alışverişi.</p>
+                            <div class="category-stats">
+                                <span>87 konu</span>
+                                <span>421 yanıt</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-header">
+                                <div class="category-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h4>Etkinlikler ve Gönüllülük</h4>
+                            </div>
+                            <p>Etkinlik duyuruları ve gönüllülük fırsatları hakkında bilgilendirmeler.</p>
+                            <div class="category-stats">
+                                <span>112 konu</span>
+                                <span>678 yanıt</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-header">
+                                <div class="category-icon">
+                                    <i class="fas fa-cloud-sun-rain"></i>
+                                </div>
+                                <h4>İklim Değişikliği</h4>
+                            </div>
+                            <p>İklim değişikliği, nedenleri, etkileri ve çözüm önerileri hakkında tartışmalar.</p>
+                            <div class="category-stats">
+                                <span>76 konu</span>
+                                <span>529 yanıt</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-header">
+                                <div class="category-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Tanışma ve Sohbet</h4>
+                            </div>
+                            <p>Topluluk üyeleriyle tanışma ve genel sohbet konuları için alan.</p>
+                            <div class="category-stats">
+                                <span>145 konu</span>
+                                <span>1250 yanıt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topics-section">
+                    <div class="topics-header">
+                        <h3>Popüler Konular</h3>
+                        <div class="topics-filter">
+                            <select>
+                                <option>Son Yazılar</option>
+                                <option>En Çok Yanıt Alan</option>
+                                <option>En Çok Görüntülenen</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <table class="topics-table">
+                        <thead>
+                            <tr>
+                                <th>Konu</th>
+                                <th class="topic-stats">İstatistikler</th>
+                                <th class="topic-last-post">Son Yazı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="#" class="topic-title"><i class="fas fa-thumbtack"></i>Yeni Başlayanlar İçin Ağaç Dikimi Rehberi</a>
+                                    <div class="topic-meta">
+                                        <span>Başlatan: Feride İkbal Durmuş</span> • 
+                                        <span>15 Mart 2025</span>
+                                    </div>
+                                </td>
+                                <td class="topic-stats">
+                                    <div>47 yanıt</div>
+                                    <div>1256 görüntüleme</div>
+                                </td>
+                                <td class="topic-last-post">
+                                    <div>Kemal Alper Akdeniz</div>
+                                    <div>Bugün, 14:35</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" class="topic-title"><i class="fas fa-fire"></i>Evde Kompost Yapımı: Adım Adım Rehber</a>
+                                    <div class="topic-meta">
+                                        <span>Başlatan: Buse Nur Akpınar</span> • 
+                                        <span>2 Nisan 2025</span>
+                                    </div>
+                                </td>
+                                <td class="topic-stats">
+                                    <div>32 yanıt</div>
+                                    <div>987 görüntüleme</div>
+                                </td>
+                                <td class="topic-last-post">
+                                    <div>Deniz Doğruel</div>
+                                    <div>Dün, 18:22</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" class="topic-title">Balkon Bahçeciliği İpuçları</a>
+                                    <div class="topic-meta">
+                                        <span>Başlatan: Ahmet Yılmaz</span> • 
+                                        <span>28 Mart 2025</span>
+                                    </div>
+                                </td>
+                                <td class="topic-stats">
+                                    <div>28 yanıt</div>
+                                    <div>754 görüntüleme</div>
+                                </td>
+                                <td class="topic-last-post">
+                                    <div>Ayşe Kaya</div>
+                                    <div>5 Nisan 2025, 09:45</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" class="topic-title">Nisan Ayı Ağaç Dikimi Etkinliği</a>
+                                    <div class="topic-meta">
+                                        <span>Başlatan: Deniz Doğruel</span> • 
+                                        <span>1 Nisan 2025</span>
+                                    </div>
+                                </td>
+                                <td class="topic-stats">
+                                    <div>24 yanıt</div>
+                                    <div>632 görüntüleme</div>
+                                </td>
+                                <td class="topic-last-post">
+                                    <div>Mehmet Demir</div>
+                                    <div>Bugün, 10:12</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" class="topic-title">Sıfır Atık Yaşam: Deneyimler ve Zorluklar</a>
+                                    <div class="topic-meta">
+                                        <span>Başlatan: Zeynep Şahin</span> • 
+                                        <span>25 Mart 2025</span>
+                                    </div>
+                                </td>
+                                <td class="topic-stats">
+                                    <div>36 yanıt</div>
+                                    <div>845 görüntüleme</div>
+                                </td>
+                                <td class="topic-last-post">
+                                    <div>Kemal Alper Akdeniz</div>
+                                    <div>Dün, 21:05</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">&raquo;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h3>Foruma Katılın, Deneyimlerinizi Paylaşın</h3>
+            <p>Henüz üye değil misiniz? Hemen üye olun ve topluluğumuza katılın.</p>
+            <div class="cta-buttons">
+                <a href="uye-ol.html" class="btn">Üye Ol</a>
+                <a href="giris.html" class="btn btn-outline">Giriş Yap</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>e-Orman</h3>
+                    <p>Dünyayı birlikte yeşillendirelim.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bağlantılar</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                        <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                        <li><a href="topluluk.html">Topluluk</a></li>
+                        <li><a href="forum.html">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim</h3>
+                    <a href="https://github.com/kemalalperakdnz/e-orman" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 e-Orman. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liderlik Tablosu - e-Orman</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>e-Orman</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                    <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                    <li><a href="topluluk.html">Topluluk</a></li>
+                    <li><a href="liderlik-tablosu.html" class="active">Liderlik Tablosu</a></li>
+                    <li><a href="giris.html" id="login-btn">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Liderlik Tablosu</h2>
+            <p>En çok ağaç diken gönüllülerimiz ve katkıları</p>
+        </div>
+    </section>
+
+    <section class="leaderboard-section">
+        <div class="container">
+            <div class="leaderboard-tabs">
+                <button class="tab-btn active" data-tab="monthly">Aylık Sıralama</button>
+                <button class="tab-btn" data-tab="yearly">Yıllık Sıralama</button>
+                <button class="tab-btn" data-tab="all-time">Tüm Zamanlar</button>
+            </div>
+
+            <div class="tab-content">
+                <div id="monthly" class="tab-pane active">
+                    <div class="top-leaders">
+                        <div class="leader second-place">
+                            <div class="position">2</div>
+                            <div class="leader-avatar">
+                                <img src="img/user2.jpg" alt="İkinci Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/80?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Zeynep Yılmaz</h3>
+                                <p>85 Ağaç</p>
+                            </div>
+                        </div>
+                        <div class="leader first-place">
+                            <div class="position">1</div>
+                            <div class="leader-avatar">
+                                <img src="img/user1.jpg" alt="Birinci Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/100?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Ahmet Kaya</h3>
+                                <p>120 Ağaç</p>
+                            </div>
+                        </div>
+                        <div class="leader third-place">
+                            <div class="position">3</div>
+                            <div class="leader-avatar">
+                                <img src="img/user3.jpg" alt="Üçüncü Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/80?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Mehmet Demir</h3>
+                                <p>72 Ağaç</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Kullanıcı</th>
+                                    <th>Konum</th>
+                                    <th>Dikilen Ağaç</th>
+                                    <th>Rozet</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="user-info">
+                                        <img src="img/user4.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Ayşe Yıldız</span>
+                                    </td>
+                                    <td>Ankara</td>
+                                    <td>68 Ağaç</td>
+                                    <td><i class="fas fa-award gold"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="user-info">
+                                        <img src="img/user5.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Ali Öztürk</span>
+                                    </td>
+                                    <td>İzmir</td>
+                                    <td>65 Ağaç</td>
+                                    <td><i class="fas fa-award gold"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="user-info">
+                                        <img src="img/user6.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Fatma Şahin</span>
+                                    </td>
+                                    <td>Bursa</td>
+                                    <td>58 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td class="user-info">
+                                        <img src="img/user7.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Mustafa Aydın</span>
+                                    </td>
+                                    <td>Antalya</td>
+                                    <td>52 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td class="user-info">
+                                        <img src="img/user8.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Elif Çelik</span>
+                                    </td>
+                                    <td>İstanbul</td>
+                                    <td>45 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td class="user-info">
+                                        <img src="img/user9.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Osman Kara</span>
+                                    </td>
+                                    <td>Adana</td>
+                                    <td>42 Ağaç</td>
+                                    <td><i class="fas fa-award bronze"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td class="user-info">
+                                        <img src="img/user10.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Seda Arslan</span>
+                                    </td>
+                                    <td>Eskişehir</td>
+                                    <td>38 Ağaç</td>
+                                    <td><i class="fas fa-award bronze"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="yearly" class="tab-pane">
+                    <div class="top-leaders">
+                        <div class="leader second-place">
+                            <div class="position">2</div>
+                            <div class="leader-avatar">
+                                <img src="img/user5.jpg" alt="İkinci Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/80?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Ali Öztürk</h3>
+                                <p>520 Ağaç</p>
+                            </div>
+                        </div>
+                        <div class="leader first-place">
+                            <div class="position">1</div>
+                            <div class="leader-avatar">
+                                <img src="img/user3.jpg" alt="Birinci Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/100?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Mehmet Demir</h3>
+                                <p>685 Ağaç</p>
+                            </div>
+                        </div>
+                        <div class="leader third-place">
+                            <div class="position">3</div>
+                            <div class="leader-avatar">
+                                <img src="img/user2.jpg" alt="Üçüncü Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/80?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Zeynep Yılmaz</h3>
+                                <p>480 Ağaç</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Kullanıcı</th>
+                                    <th>Konum</th>
+                                    <th>Dikilen Ağaç</th>
+                                    <th>Rozet</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="user-info">
+                                        <img src="img/user1.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Ahmet Kaya</span>
+                                    </td>
+                                    <td>İstanbul</td>
+                                    <td>450 Ağaç</td>
+                                    <td><i class="fas fa-award gold"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="user-info">
+                                        <img src="img/user4.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Ayşe Yıldız</span>
+                                    </td>
+                                    <td>Ankara</td>
+                                    <td>420 Ağaç</td>
+                                    <td><i class="fas fa-award gold"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="user-info">
+                                        <img src="img/user8.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Elif Çelik</span>
+                                    </td>
+                                    <td>İstanbul</td>
+                                    <td>380 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td class="user-info">
+                                        <img src="img/user6.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Fatma Şahin</span>
+                                    </td>
+                                    <td>Bursa</td>
+                                    <td>350 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td class="user-info">
+                                        <img src="img/user7.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Mustafa Aydın</span>
+                                    </td>
+                                    <td>Antalya</td>
+                                    <td>320 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td class="user-info">
+                                        <img src="img/user10.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Seda Arslan</span>
+                                    </td>
+                                    <td>Eskişehir</td>
+                                    <td>290 Ağaç</td>
+                                    <td><i class="fas fa-award bronze"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td class="user-info">
+                                        <img src="img/user9.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Osman Kara</span>
+                                    </td>
+                                    <td>Adana</td>
+                                    <td>265 Ağaç</td>
+                                    <td><i class="fas fa-award bronze"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="all-time" class="tab-pane">
+                    <div class="top-leaders">
+                        <div class="leader second-place">
+                            <div class="position">2</div>
+                            <div class="leader-avatar">
+                                <img src="img/user3.jpg" alt="İkinci Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/80?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Mehmet Demir</h3>
+                                <p>1250 Ağaç</p>
+                            </div>
+                        </div>
+                        <div class="leader first-place">
+                            <div class="position">1</div>
+                            <div class="leader-avatar">
+                                <img src="img/user5.jpg" alt="Birinci Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/100?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Ali Öztürk</h3>
+                                <p>1580 Ağaç</p>
+                            </div>
+                        </div>
+                        <div class="leader third-place">
+                            <div class="position">3</div>
+                            <div class="leader-avatar">
+                                <img src="img/user1.jpg" alt="Üçüncü Sıradaki Kullanıcı" onerror="this.src='https://via.placeholder.com/80?text=Kullanıcı'">
+                            </div>
+                            <div class="leader-info">
+                                <h3>Ahmet Kaya</h3>
+                                <p>980 Ağaç</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sıra</th>
+                                    <th>Kullanıcı</th>
+                                    <th>Konum</th>
+                                    <th>Dikilen Ağaç</th>
+                                    <th>Rozet</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="user-info">
+                                        <img src="img/user2.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Zeynep Yılmaz</span>
+                                    </td>
+                                    <td>İstanbul</td>
+                                    <td>920 Ağaç</td>
+                                    <td><i class="fas fa-award gold"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="user-info">
+                                        <img src="img/user4.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Ayşe Yıldız</span>
+                                    </td>
+                                    <td>Ankara</td>
+                                    <td>850 Ağaç</td>
+                                    <td><i class="fas fa-award gold"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="user-info">
+                                        <img src="img/user6.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Fatma Şahin</span>
+                                    </td>
+                                    <td>Bursa</td>
+                                    <td>780 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td class="user-info">
+                                        <img src="img/user8.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Elif Çelik</span>
+                                    </td>
+                                    <td>İstanbul</td>
+                                    <td>720 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td class="user-info">
+                                        <img src="img/user7.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Mustafa Aydın</span>
+                                    </td>
+                                    <td>Antalya</td>
+                                    <td>680 Ağaç</td>
+                                    <td><i class="fas fa-award silver"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td class="user-info">
+                                        <img src="img/user10.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Seda Arslan</span>
+                                    </td>
+                                    <td>Eskişehir</td>
+                                    <td>620 Ağaç</td>
+                                    <td><i class="fas fa-award bronze"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td class="user-info">
+                                        <img src="img/user9.jpg" alt="Kullanıcı" onerror="this.src='https://via.placeholder.com/40?text=K'">
+                                        <span>Osman Kara</span>
+                                    </td>
+                                    <td>Adana</td>
+                                    <td>580 Ağaç</td>
+                                    <td><i class="fas fa-award bronze"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leaderboard-stats">
+                <div class="stat-card">
+                    <i class="fas fa-tree"></i>
+                    <div class="stat-info">
+                        <h4>Toplam Dikilen Ağaç</h4>
+                        <p>250,000+</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-info">
+                        <h4>Aktif Gönüllü</h4>
+                        <p>30,000+</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <div class="stat-info">
+                        <h4>Ağaçlandırılan Bölge</h4>
+                        <p>81 İl</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ağaç Haritası Bölümü -->
+            <div class="tree-map-section">
+                <h3 class="section-title">Ağaç Haritası</h3>
+                <p class="section-description">Türkiye genelinde dikilen ağaçların dağılımını görebilirsiniz.</p>
+                
+                <div class="map-container">
+                    <div id="tree-map">
+                        <div class="map-content">
+                            <!-- Basit bölge temsili -->
+                            <div class="region-grid">
+                                <div class="region" data-name="Marmara">
+                                    <h4>Marmara Bölgesi</h4>
+                                    <div class="region-trees">
+                                        <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                    </div>
+                                    <p><span class="tree-count">12,500+</span> Ağaç</p>
+                                </div>
+                                <div class="region" data-name="Ege">
+                                    <h4>Ege Bölgesi</h4>
+                                    <div class="region-trees">
+                                        <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                    </div>
+                                    <p><span class="tree-count">31,200+</span> Ağaç</p>
+                                </div>
+                                <div class="region" data-name="Akdeniz">
+                                    <h4>Akdeniz Bölgesi</h4>
+                                    <div class="region-trees">
+                                        <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                    </div>
+                                    <p><span class="tree-count">22,100+</span> Ağaç</p>
+                                </div>
+                                <div class="region" data-name="İç Anadolu">
+                                    <h4>İç Anadolu Bölgesi</h4>
+                                    <div class="region-trees">
+                                        <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                    </div>
+                                    <p><span class="tree-count">28,700+</span> Ağaç</p>
+                                </div>
+                                <div class="region" data-name="Karadeniz">
+                                    <h4>Karadeniz Bölgesi</h4>
+                                    <div class="region-trees">
+                                        <i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                    </div>
+                                    <p><span class="tree-count">19,500+</span> Ağaç</p>
+                                </div>
+                                <div class="region" data-name="Doğu Anadolu">
+                                    <h4>Doğu Anadolu Bölgesi</h4>
+                                    <div class="region-trees">
+                                        <i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                    </div>
+                                    <p><span class="tree-count">15,800+</span> Ağaç</p>
+                                </div>
+                                <div class="region" data-name="Güneydoğu Anadolu">
+                                    <h4>Güneydoğu Anadolu Bölgesi</h4>
+                                    <div class="region-trees">
+                                        <i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                    </div>
+                                    <p><span class="tree-count">18,300+</span> Ağaç</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <i class="fas fa-tree" style="color: #2ecc71;"></i>
+                            <span>10,000+ Ağaç</span>
+                        </div>
+                        <div class="legend-item">
+                            <i class="fas fa-tree" style="color: #27ae60;"></i>
+                            <span>20,000+ Ağaç</span>
+                        </div>
+                        <div class="legend-item">
+                            <i class="fas fa-tree" style="color: #219653;"></i>
+                            <span>30,000+ Ağaç</span>
+                        </div>
+                    </div>
+                    
+                    <div class="map-filters">
+                        <h4>Filtreler</h4>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" checked> Tüm Ağaçlar
+                            </label>
+                            <label>
+                                <input type="checkbox"> Sadece Meyveli Ağaçlar
+                            </label>
+                            <label>
+                                <input type="checkbox"> Sadece Endemik Türler
+                            </label>
+                        </div>
+                        <div class="time-filter">
+                            <label for="year-filter">Yıl:</label>
+                            <select id="year-filter">
+                                <option value="all">Tüm Zamanlar</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="join-leaderboard">
+                <h3>Siz de Liderlik Tablosunda Yerinizi Alın!</h3>
+                <p>Ağaç dikerek hem doğaya katkıda bulunun hem de liderlik tablosunda yerinizi alın. Ağaç dikme etkinliklerimize katılın veya kendi ağacınızı dikin ve sistemimize kaydedin.</p>
+                <div class="action-buttons">
+                    <a href="agac-takip.html" class="btn">Ağaç Takip Sistemine Git</a>
+                    <a href="gonullu-ol.html" class="btn btn-outline">Gönüllü Ol</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>e-Orman</h3>
+                    <p>Dünyayı birlikte yeşillendirelim.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bağlantılar</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                        <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                        <li><a href="topluluk.html">Topluluk</a></li>
+                        <li><a href="liderlik-tablosu.html">Liderlik Tablosu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim</h3>
+                    <a href="https://github.com/kemalalperakdnz/e-orman" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 e-Orman. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>

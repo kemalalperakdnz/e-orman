@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Orman - Ağaç Takip</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>e-Orman</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="agac-takip.html" class="active">Ağaç Takip</a></li>
+                    <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                    <li><a href="topluluk.html">Topluluk</a></li>
+                    <li><a href="liderlik-tablosu.html">Liderlik Tablosu</a></li>
+                    <li><a href="giris.html" id="login-btn">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Ağaç Takip Sistemi</h2>
+            <p>Diktiğiniz ağaçları kaydedin ve gelişimlerini takip edin.</p>
+        </div>
+    </section>
+
+    <section class="tree-tracking">
+        <div class="container">
+            <div class="tracking-dashboard">
+                <div class="dashboard-summary">
+                    <div class="summary-card">
+                        <i class="fas fa-tree"></i>
+                        <h3>Toplam Ağaç</h3>
+                        <p id="total-trees">0</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Türler</h3>
+                        <p id="total-species">0</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Lokasyonlar</h3>
+                        <p id="total-locations">0</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Bu Ay</h3>
+                        <p id="trees-this-month">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tracking-form-container">
+                <h3>Yeni Ağaç Ekle</h3>
+                <form id="tree-form" class="tracking-form">
+                    <div class="form-group">
+                        <label for="tree-species">Ağaç Türü</label>
+                        <select id="tree-species" required>
+                            <option value="">Tür Seçin</option>
+                            <option value="çam">Çam</option>
+                            <option value="meşe">Meşe</option>
+                            <option value="çınar">Çınar</option>
+                            <option value="zeytin">Zeytin</option>
+                            <option value="kavak">Kavak</option>
+                            <option value="diğer">Diğer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tree-location">Dikim Lokasyonu</label>
+                        <input type="text" id="tree-location" placeholder="Örn: Ankara, Çankaya" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="planting-date">Dikim Tarihi</label>
+                        <input type="date" id="planting-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tree-notes">Notlar</label>
+                        <textarea id="tree-notes" placeholder="Ağaç hakkında eklemek istediğiniz notlar..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tree-image">Fotoğraf Ekle</label>
+                        <input type="file" id="tree-image" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn">Ağaç Ekle</button>
+                </form>
+            </div>
+
+            <div class="tree-list-container">
+                <h3>Ağaçlarım</h3>
+                <div class="filter-container">
+                    <label for="filter-species">Tür Filtrele:</label>
+                    <select id="filter-species">
+                        <option value="all">Tümü</option>
+                        <option value="çam">Çam</option>
+                        <option value="meşe">Meşe</option>
+                        <option value="çınar">Çınar</option>
+                        <option value="zeytin">Zeytin</option>
+                        <option value="kavak">Kavak</option>
+                        <option value="diğer">Diğer</option>
+                    </select>
+                    <label for="filter-location">Lokasyon Filtrele:</label>
+                    <input type="text" id="filter-location" placeholder="Lokasyon ara...">
+                </div>
+                <div id="tree-list" class="tree-list">
+                    <!-- Ağaç kartları buraya dinamik olarak eklenecek -->
+                    <div class="empty-state">
+                        <i class="fas fa-seedling"></i>
+                        <p>Henüz ağaç eklemediniz. Yeni bir ağaç ekleyerek takibe başlayabilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tree-map">
+        <div class="container">
+            <h3>Ağaç Haritası</h3>
+            <p>Aşağıdaki haritada tüm dikilen ağaçların konumlarını görebilirsiniz.</p>
+            <div class="map-container">
+                <div id="tree-map">
+                    <div class="map-content">
+                        <!-- Basit bölge temsili -->
+                        <div class="region-grid">
+                            <div class="region" data-name="Marmara">
+                                <h4>Marmara Bölgesi</h4>
+                                <div class="region-trees">
+                                    <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                </div>
+                                <p><span class="tree-count">12,500+</span> Ağaç</p>
+                            </div>
+                            <div class="region" data-name="Ege">
+                                <h4>Ege Bölgesi</h4>
+                                <div class="region-trees">
+                                    <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                </div>
+                                <p><span class="tree-count">31,200+</span> Ağaç</p>
+                            </div>
+                            <div class="region" data-name="Akdeniz">
+                                <h4>Akdeniz Bölgesi</h4>
+                                <div class="region-trees">
+                                    <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                </div>
+                                <p><span class="tree-count">22,100+</span> Ağaç</p>
+                            </div>
+                            <div class="region" data-name="İç Anadolu">
+                                <h4>İç Anadolu Bölgesi</h4>
+                                <div class="region-trees">
+                                    <i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                </div>
+                                <p><span class="tree-count">28,700+</span> Ağaç</p>
+                            </div>
+                            <div class="region" data-name="Karadeniz">
+                                <h4>Karadeniz Bölgesi</h4>
+                                <div class="region-trees">
+                                    <i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                </div>
+                                <p><span class="tree-count">19,500+</span> Ağaç</p>
+                            </div>
+                            <div class="region" data-name="Doğu Anadolu">
+                                <h4>Doğu Anadolu Bölgesi</h4>
+                                <div class="region-trees">
+                                    <i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                </div>
+                                <p><span class="tree-count">15,800+</span> Ağaç</p>
+                            </div>
+                            <div class="region" data-name="Güneydoğu Anadolu">
+                                <h4>Güneydoğu Anadolu Bölgesi</h4>
+                                <div class="region-trees">
+                                    <i class="fas fa-tree"></i><i class="fas fa-tree"></i>
+                                </div>
+                                <p><span class="tree-count">18,300+</span> Ağaç</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <i class="fas fa-tree" style="color: #2ecc71;"></i>
+                        <span>10,000+ Ağaç</span>
+                    </div>
+                    <div class="legend-item">
+                        <i class="fas fa-tree" style="color: #27ae60;"></i>
+                        <span>20,000+ Ağaç</span>
+                    </div>
+                    <div class="legend-item">
+                        <i class="fas fa-tree" style="color: #219653;"></i>
+                        <span>30,000+ Ağaç</span>
+                    </div>
+                </div>
+                
+                <div class="map-filters">
+                    <h4>Filtreler</h4>
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" checked> Tüm Ağaçlar
+                        </label>
+                        <label>
+                            <input type="checkbox"> Sadece Meyveli Ağaçlar
+                        </label>
+                        <label>
+                            <input type="checkbox"> Sadece Endemik Türler
+                        </label>
+                    </div>
+                    <div class="time-filter">
+                        <label for="year-filter">Yıl:</label>
+                        <select id="year-filter">
+                            <option value="all">Tüm Zamanlar</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>e-Orman</h3>
+                    <p>Dünyayı birlikte yeşillendirelim.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bağlantılar</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                        <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                        <li><a href="topluluk.html">Topluluk</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim</h3>
+                    <a href="https://github.com/kemalalperakdnz/e-orman" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 e-Orman. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/tree-tracking.js"></script>
+</body>
+</html>

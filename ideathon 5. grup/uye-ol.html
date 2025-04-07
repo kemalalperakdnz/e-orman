@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Orman - Üye Ol</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .register-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+        }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .register-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 1.5px;
+        }
+
+        .register-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            padding-left: 40px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group textarea {
+            padding-left: 15px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 15px;
+            bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .form-group textarea + i {
+            top: 40px;
+            bottom: auto;
+        }
+
+        .form-options {
+            grid-column: span 2;
+            margin: 10px 0 25px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .checkbox-group label {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .checkbox-group a {
+            color: var(--primary-color);
+        }
+
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+
+        .register-btn {
+            grid-column: span 2;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            grid-column: span 2;
+        }
+
+        .login-link a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .register-decoration {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e7d32" opacity="0.1"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .register-decoration.top-right {
+            top: -50px;
+            right: -50px;
+            transform: rotate(45deg);
+        }
+
+        .register-decoration.bottom-left {
+            bottom: -50px;
+            left: -50px;
+            transform: rotate(225deg);
+        }
+
+        .benefits {
+            margin-top: 40px;
+            grid-column: span 2;
+            background-color: var(--background-light);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .benefits h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .benefits ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .register-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width, .form-options, .register-btn, .login-link, .benefits {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>e-Orman</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                    <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                    <li><a href="topluluk.html">Topluluk</a></li>
+                    <li><a href="giris.html" id="login-btn">Giriş Yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Üye Ol</h2>
+            <p>e-Orman ailesine katılın, ağaç dikin, takip edin ve topluluğun bir parçası olun.</p>
+        </div>
+    </section>
+
+    <section class="register-section">
+        <div class="container">
+            <div class="register-container">
+                <div class="register-decoration top-right"></div>
+                <div class="register-decoration bottom-left"></div>
+                
+                <h2>Hesap Oluştur</h2>
+                
+                <form id="register-form" class="register-form">
+                    <div class="form-group">
+                        <label for="first-name">Ad</label>
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="first-name" placeholder="Adınız" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="last-name">Soyad</label>
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="last-name" placeholder="Soyadınız" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-posta Adresi</label>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="E-posta adresiniz" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="Telefon numaranız">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Şifre</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Şifreniz (en az 8 karakter)" required minlength="8">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Şifre Tekrar</label>
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirm-password" placeholder="Şifrenizi tekrar girin" required minlength="8">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">Şehir</label>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="city" placeholder="Yaşadığınız şehir">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interests">İlgi Alanları</label>
+                        <i class="fas fa-heart"></i>
+                        <select id="interests" multiple>
+                            <option value="tree-planting">Ağaç Dikimi</option>
+                            <option value="gardening">Bahçecilik</option>
+                            <option value="sustainability">Sürdürülebilir Yaşam</option>
+                            <option value="climate-change">İklim Değişikliği</option>
+                            <option value="biodiversity">Biyoçeşitlilik</option>
+                            <option value="volunteering">Gönüllülük</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="about">Hakkınızda</label>
+                        <textarea id="about" placeholder="Kendiniz ve çevre konusundaki ilgileriniz hakkında kısa bir bilgi"></textarea>
+                    </div>
+                    
+                    <div class="form-options">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">Kullanım Şartları ve Gizlilik Politikası'ni okudum ve kabul ediyorum.</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter">
+                            <label for="newsletter">e-Orman'ın etkinlik ve duyurularından haberdar olmak istiyorum.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="benefits">
+                        <h3>Üyelik Avantajları</h3>
+                        <ul>
+                            <li>Diktiğiniz ağaçları kaydedin ve takip edin</li>
+                            <li>Topluluk etkinliklerine katılın</li>
+                            <li>Forum üzerinden diğer üyelerle iletişim kurun</li>
+                            <li>Özel içerik ve kaynaklara erişin</li>
+                            <li>Çevre dostu projelerimize katkıda bulunun</li>
+                        </ul>
+                    </div>
+                    
+                    <button type="submit" class="btn register-btn">Üye Ol</button>
+                    
+                    <div class="login-link">
+                        Zaten hesabınız var mı? <a href="giris.html">Giriş Yap</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>e-Orman</h3>
+                    <p>Dünyayı birlikte yeşillendirelim.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Bağlantılar</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="agac-takip.html">Ağaç Takip</a></li>
+                        <li><a href="egitim.html">Eğitim ve Bilgilendirme</a></li>
+                        <li><a href="topluluk.html">Topluluk</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim</h3>
+                    <a href="https://github.com/kemalalperakdnz/e-orman" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 e-Orman. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Şifre kontrolü
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Şifreler eşleşmiyor. Lütfen kontrol ediniz.');
+                return;
+            }
+            
+            // Form verilerini topla
+            const formData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                city: document.getElementById('city').value,
+                interests: Array.from(document.getElementById('interests').selectedOptions).map(option => option.value),
+                about: document.getElementById('about').value,
+                newsletter: document.getElementById('newsletter').checked
+            };
+            
+            // Burada normalde bir API'ye istek yapılır
+            console.log('Üyelik bilgileri:', formData);
+            
+            // Başarılı kayıt simülasyonu
+            alert('Üyeliğiniz başarıyla oluşturuldu! Giriş sayfasına yönlendiriliyorsunuz.');
+            window.location.href = 'giris.html';
+        });
+    </script>
+</body>
+</html>
